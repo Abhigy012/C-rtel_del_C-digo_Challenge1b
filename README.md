@@ -27,23 +27,23 @@ challenge1b/
 ### Steps to Run
 
 1. **Navigate to the project directory:**
-   ```powershell
-   cd "C:\Users\Abhay\Downloads\adobe-hackathon-2\challenge1b"
+   ```bash
+   cd challenge1b
    ```
 
 2. **Build the Docker image:**
-   ```powershell
-   docker build --no-cache --platform linux/amd64 -t mysolution:v1 .
+   ```bash
+   docker build --no-cache --platform linux/amd64 -t challenge1b:latest .
    ```
 
 3. **Run Challenge 1B:**
-   ```powershell
-   .\run_1b.ps1
+   ```bash
+   docker run --rm -v "$(pwd)/input_1b:/app/input_1b" -v "$(pwd)/output_1b:/app/output_1b" --network none challenge1b:latest
    ```
 
-### Manual Docker Command (Alternative)
+### Alternative: Using PowerShell Script
 ```powershell
-docker run --rm -v "${PWD}/input_1b:/app/input_1b" -v "${PWD}/output_1b:/app/output_1b" --network none mysolution:v1 python src/extract_intel.py
+.\run_1b.ps1
 ```
 
 ## Current Configuration
